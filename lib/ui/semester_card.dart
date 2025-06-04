@@ -7,12 +7,14 @@ class SemesterCard extends StatefulWidget {
   final String title;
   final Semester semester;
   final VoidCallback onDelete;
+  final ValueChanged<Semester> onSemesterUpdated;
 
   const SemesterCard({
     super.key,
     required this.title,
     required this.semester,
     required this.onDelete,
+    required this.onSemesterUpdated,
   });
 
   @override
@@ -20,7 +22,7 @@ class SemesterCard extends StatefulWidget {
 }
 
 class _SemesterCardState extends State<SemesterCard> {
-  List<Subject> subjects = [];
+  late List<Subject> subjects;
 
   @override
   void initState() {
@@ -28,7 +30,9 @@ class _SemesterCardState extends State<SemesterCard> {
     subjects = List.from(widget.semester.subjects);
   }
 
-  void update() => setState(() {});
+  void _updateParent() {
+    widget.onSemesterUpdated(Semester(subjects: List.from(subjects)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +49,8 @@ class _SemesterCardState extends State<SemesterCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(widget.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                Text(widget.title,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 IconButton(
                   onPressed: widget.onDelete,
                   icon: const Icon(Icons.close),
@@ -56,26 +61,28 @@ class _SemesterCardState extends State<SemesterCard> {
               children: [
                 for (var subject in subjects)
                   SubjectRow(
+                    key: ValueKey(subject.hashCode),
                     subject: subject,
                     onDelete: () {
                       setState(() {
                         subjects.remove(subject);
+                        _updateParent();
                       });
                     },
-                    onChanged: update,
+                    onChanged: _updateParent,
                   ),
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Text("Semester GPA: ${gpa.toStringAsFixed(2)}",
-                style: const TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.w600)),
+                style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                setState(() => subjects.add(Subject()));
+                setState(() {
+                  subjects.add(Subject());
+                  _updateParent();
+                });
               },
               child: const Text("Add Subject"),
             ),
