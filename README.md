@@ -17,7 +17,7 @@ A Flutter application designed specifically for American International Universit
 
 | Initial State | Single Semester | Multiple Semesters |
 |--------------|-----------------|--------------------|
-| ![Screenshot from 2025-06-05 19-11-32](https://github.com/user-attachments/assets/b7d81d4b-de73-47b4-95f6-aa71b121fa1b) |  ![Screenshot from 2025-06-05 19-12-13](https://github.com/user-attachments/assets/9923f97a-243d-41d0-a972-8d34b54ed760) | ![Screenshot from 2025-06-05 19-12-21](https://github.com/user-attachments/assets/eeafeb76-7721-4d0d-997b-15dff7a4cd70) |
+| ![Screenshot from 2025-06-05 19-18-35](https://github.com/user-attachments/assets/7ba3d0cc-a010-4902-a62c-4fa04df4b0ae) |  ![Screenshot from 2025-06-05 19-12-13](https://github.com/user-attachments/assets/9923f97a-243d-41d0-a972-8d34b54ed760) | ![Screenshot from 2025-06-05 19-12-21](https://github.com/user-attachments/assets/eeafeb76-7721-4d0d-997b-15dff7a4cd70) |
 
 ## AIUB Grading System Reference
 
