@@ -1,4 +1,4 @@
-# Force Dart as main language
+# .Force Dart as main language
 *.dart linguist-language=Dart
 
 # Treat common Flutter asset types properly
