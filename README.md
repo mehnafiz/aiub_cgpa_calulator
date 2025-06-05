@@ -52,7 +52,7 @@ A Flutter application designed specifically for American International Universit
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/auto_cgpa_calculator.git
+git clone https://github.com/mehnafiz/auto_cgpa_calculator.git
 
 # Navigate to project directory
 cd auto_cgpa_calculator
